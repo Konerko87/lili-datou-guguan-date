@@ -105,9 +105,10 @@
       h1 {
         margin: 22px 0 14px;
         color: #fff8ef;
-        font-size: 4.4rem;
-        line-height: 1.02;
+        font-size: clamp(2.6rem, 5.4vw, 3.8rem);
+        line-height: 1.05;
         font-weight: 800;
+        letter-spacing: -0.01em;
         max-width: 840px;
       }
 
@@ -180,22 +181,32 @@
       }
 
       section {
-        padding: 64px 0;
+        padding: 72px 0;
         border-bottom: 1px solid var(--line);
       }
 
       .section-title {
         display: grid;
-        gap: 10px;
+        gap: 12px;
         max-width: 760px;
-        margin-bottom: 28px;
+        margin-bottom: 32px;
+      }
+
+      .section-title::before {
+        content: attr(data-eyebrow);
+        color: var(--red);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
       }
 
       h2 {
         margin: 0;
         color: var(--forest-2);
-        font-size: 2.2rem;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
         line-height: 1.15;
+        letter-spacing: -0.005em;
       }
 
       h3 {
@@ -217,7 +228,7 @@
 
       .quick-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 14px;
       }
 
@@ -315,14 +326,24 @@
 
       .timeline-item {
         display: grid;
-        grid-template-columns: 116px 1fr;
-        gap: 18px;
-        padding: 18px;
+        grid-template-columns: 92px 1fr;
+        gap: 20px;
+        padding: 20px 22px;
+        transition: border-color 200ms ease, transform 200ms ease;
+      }
+
+      .timeline-item:hover {
+        border-color: rgba(183, 75, 66, 0.35);
+        transform: translateX(2px);
       }
 
       .time {
         color: var(--red);
         font-weight: 800;
+        font-variant-numeric: tabular-nums;
+        font-size: 1.1rem;
+        padding-top: 2px;
+        border-right: 2px solid rgba(183, 75, 66, 0.18);
       }
 
       .timeline-item ul,
@@ -458,6 +479,13 @@
         .timeline-item {
           grid-template-columns: 1fr;
           gap: 8px;
+          padding: 18px;
+        }
+
+        .time {
+          border-right: none;
+          border-bottom: none;
+          padding-top: 0;
         }
 
         .day-header {
@@ -474,7 +502,7 @@
         <div class="eyebrow">谷關明治溫泉老街 · 兩天一夜 · 初次約會</div>
         <h1><span>麗麗公主 × 大頭</span><span>溫泉小旅行</span></h1>
         <p class="subtitle">
-          第一次出遊不要趕行程。把路線排得順一點，讓散步、泡湯、拍照和聊天都有剛剛好的空白。
+          第一次出遊少走路。重點放在泡湯、按摩、拍照跟好好聊天，配上一小段夜晚散步，讓麗麗公主完全不勉強。
         </p>
         <div class="hero-actions">
           <a class="btn" href="#itinerary">看行程表</a>
@@ -486,16 +514,16 @@
 
     <main>
       <section aria-labelledby="brief-title">
-        <div class="section-title">
+        <div class="section-title" data-eyebrow="01 · Overview">
           <h2 id="brief-title">這趟的節奏</h2>
           <p class="lead">
-            谷關明治溫泉老街比較像溫泉飯店周邊的日式散步街景，不是大型商店街。最適合的玩法是：下午到、傍晚散步拍照、晚上泡湯，隔天再選一條不太硬的山林路線。
+            谷關明治溫泉老街比較像溫泉飯店周邊的日式街景，不是大型商店街。給麗麗公主的版本：下午到、傍晚拍幾張就好、晚上泡湯，第二天主菜直接給雙人按摩，全程不爬山、不走步道。
           </p>
         </div>
         <div class="quick-grid">
           <article class="quick-card">
             <strong>主題</strong>
-            <span>山景、老街燈籠、溫泉、輕步道，重點是讓兩個人自然相處。</span>
+            <span>山景、老街燈籠、溫泉、雙人按摩，少走路、不爬山，讓兩個人自然相處。</span>
           </article>
           <article class="quick-card">
             <strong>推薦交通</strong>
@@ -507,7 +535,7 @@
           </article>
           <article class="quick-card">
             <strong>大頭任務</strong>
-            <span>訂房、查天氣、備雨傘、帶小點心，拍照前先問麗麗公主喜歡哪一邊臉。</span>
+            <span>訂房、預約按摩、查天氣、備雨傘、帶小點心，拍照前先問麗麗公主喜歡哪一邊臉。</span>
           </article>
         </div>
       </section>
@@ -526,8 +554,8 @@
               <p>每半天只抓一個主活動，留時間給喝咖啡、休息、換衣服、補妝。</p>
             </div>
             <div class="note-card">
-              <b>不硬爬</b>
-              <p>第二天步道用麗麗公主狀態決定，想舒服就改森林散步或泡湯。</p>
+              <b>不爆走</b>
+              <p>不排步道、不爬山。要走的路都在三五分鐘內，剩下交給車程、按摩跟泡湯。</p>
             </div>
             <div class="note-card">
               <b>不催促</b>
@@ -542,9 +570,9 @@
       </section>
 
       <section id="itinerary" aria-labelledby="itinerary-title">
-        <div class="section-title">
+        <div class="section-title" data-eyebrow="02 · Itinerary">
           <h2 id="itinerary-title">兩天一夜行程</h2>
-          <p class="lead">時間可以照住宿入住時間微調。原則是第一天浪漫，第二天看山；不把體力花到約會品質下降。</p>
+          <p class="lead">時間可以照住宿入住時間微調。原則是第一天浪漫、第二天按摩；任何時刻都不爬山、不走遠路，避免麗麗公主累到不想說話。</p>
         </div>
 
         <div class="timeline">
@@ -576,8 +604,8 @@
           <article class="timeline-item">
             <div class="time">13:30</div>
             <div>
-              <h3>谷關溫泉公園、足湯或附近慢慢逛</h3>
-              <p>用輕鬆景點接入住時間，腳不累、話題也自然。若遇到維護或人太多，就改到旅宿附近喝咖啡。</p>
+              <h3>谷關溫泉公園足湯，只待 20 分鐘</h3>
+              <p>找一張長椅坐下泡腳就好，不繞園、不爬階。腳放熱了話題也軟了，時間到就直接上車去旅宿。</p>
               <div class="button-row">
                 <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E9%97%9C%E6%BA%AB%E6%B3%89%E5%85%AC%E5%9C%92" target="_blank" rel="noreferrer">谷關溫泉公園地圖</a>
               </div>
@@ -595,10 +623,10 @@
           <article class="timeline-item">
             <div class="time">16:30</div>
             <div>
-              <h3>谷關吊橋、明治溫泉老街拍照</h3>
-              <p>傍晚光線最適合拍人。走谷關吊橋看溪谷，再回到明治溫泉老街燈籠街景拍兩人背影照。</p>
+              <h3>吊橋頭、老街燈籠定點拍照</h3>
+              <p>不走完整段吊橋，只到橋頭兩三個觀景點拍照。再開車到老街，挑燈籠最密的一段拍背影跟側面，整段腳程抓 15 分鐘以內。</p>
               <ul>
-                <li>大頭先拍環境，再拍麗麗公主，不要一開始就近拍。</li>
+                <li>大頭先把點位踩好，麗麗公主到場直接擺位，不來回走。</li>
                 <li>拍照口訣：站燈籠旁、身體微側、背景留山景。</li>
               </ul>
               <div class="button-row">
@@ -632,56 +660,59 @@
           <article class="timeline-item">
             <div class="time">21:30</div>
             <div>
-              <h3>夜間散步，收一個溫柔結尾</h3>
-              <p>只走旅宿附近，聊三個輕鬆題目：最喜歡的旅行、最近想學的事、下一次想一起吃什麼。</p>
+              <h3>短短夜間散步，10 分鐘就好</h3>
+              <p>只走旅宿正門外那一小段燈籠路，來回大概 10 分鐘。聊一個輕鬆題目：今天最喜歡的一個畫面是什麼。</p>
             </div>
           </article>
         </div>
 
         <div class="timeline" style="margin-top: 28px">
           <div class="day-header">
-            <h3>Day 2｜輕步道、森林與回程</h3>
-            <span>舒服版，不拚體力</span>
+            <h3>Day 2｜雙人按摩，慢慢收尾</h3>
+            <span>舒服版，不走遠路</span>
           </div>
 
           <article class="timeline-item">
-            <div class="time">08:30</div>
+            <div class="time">09:00</div>
             <div>
-              <h3>早餐與退房前準備</h3>
-              <p>先確認天氣、鞋子、雨具。若前一晚太晚睡，第二天直接改「慢早餐＋溫泉公園」也很合理。</p>
+              <h3>慢早餐，不趕退房</h3>
+              <p>飯店早餐慢慢吃，順便看一下天氣。退房前把行李先放車上，按摩結束就能直接走，麗麗公主不用再爬上爬下。</p>
             </div>
           </article>
 
           <article class="timeline-item">
-            <div class="time">10:00</div>
+            <div class="time">10:30</div>
             <div>
-              <h3>捎來步道小挑戰</h3>
-              <p>這段有階梯，適合想看谷關山景又不想遠征的人。走到觀景處就好，不需要完整拚完。</p>
+              <h3>雙人按摩，90 分鐘把全身放下來</h3>
+              <p>整趟的主活動。前一晚就先預約飯店湯房或谷關當地 SPA 的雙人按摩房，避免麗麗公主臨時要在飯店間走來走去找。</p>
               <ul>
-                <li>公主穿好走的鞋，大頭帶水和濕紙巾。</li>
-                <li>如果地濕或下雨，直接取消，不拿安全開玩笑。</li>
+                <li>大頭出發前先打電話確認房型、預約時段、是否含淋浴。</li>
+                <li>跟師傅說公主肩頸跟腰最緊，力道偏中、不要太重。</li>
+                <li>按完留 20 分鐘休息、喝熱茶，再起身。</li>
               </ul>
-              <div class="button-row">
-                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E9%97%9C%E6%8D%8E%E4%BE%86%E6%AD%A5%E9%81%93" target="_blank" rel="noreferrer">捎來步道地圖</a>
+              <div class="badge-row">
+                <span class="badge">前一天先預約</span>
+                <span class="badge">力道偏中</span>
+                <span class="badge">按完先喝熱茶</span>
               </div>
             </div>
           </article>
 
           <article class="timeline-item">
-            <div class="time">12:00</div>
+            <div class="time">12:30</div>
             <div>
-              <h3>午餐，選輕鬆好聊天的位置</h3>
-              <p>不要邊趕路邊吃。上午若走步道，午餐就回谷關；若直接去八仙山，午餐可安排森林遊樂區內或回程路上。</p>
+              <h3>午餐，挑可以坐久一點的店</h3>
+              <p>按完不要馬上趕路。挑老街附近能慢慢吃、有窗景的店，把按摩後放鬆的感覺留住，不要邊趕路邊吃。</p>
             </div>
           </article>
 
           <article class="timeline-item">
-            <div class="time">13:30</div>
+            <div class="time">14:00</div>
             <div>
-              <h3>八仙山森林散步，或回老街買伴手</h3>
-              <p>想多看森林就去八仙山國家森林遊樂區；想更放鬆就留在谷關買白冷冰棒、小點心，拍最後一組照片。</p>
+              <h3>開車兜風＋老街伴手禮</h3>
+              <p>不下車走遠路。沿台 8 線開一小段看溪谷風景，回頭在老街停一次，買白冷冰棒、小點心當伴手，順手拍最後一組合照。</p>
               <div class="button-row">
-                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E5%85%AB%E4%BB%99%E5%B1%B1%E5%9C%8B%E5%AE%B6%E6%A3%AE%E6%9E%97%E9%81%8A%E6%A8%82%E5%8D%80" target="_blank" rel="noreferrer">八仙山地圖</a>
+                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E6%BA%AB%E6%B3%89%E8%80%81%E8%A1%97" target="_blank" rel="noreferrer">明治老街地圖</a>
               </div>
             </div>
           </article>
@@ -690,35 +721,35 @@
             <div class="time">15:30</div>
             <div>
               <h3>回程，不拖到太累</h3>
-              <p>自駕建議天黑前下山。搭公車請提早查 850 返程班次，寧願早一班，也不要讓最後的印象變成等車焦慮。</p>
+              <p>自駕建議天黑前下山，按完車上鋪好枕頭讓公主補眠。搭公車請提早查 850 返程班次，寧願早一班，也不要讓最後的印象變成等車焦慮。</p>
             </div>
           </article>
         </div>
       </section>
 
       <section aria-labelledby="backup-title">
-        <div class="section-title">
+        <div class="section-title" data-eyebrow="03 · Backup">
           <h2 id="backup-title">三個備案</h2>
-          <p class="lead">出遊最重要的是氣氛，不是照表操課。遇到雨、人多、或麗麗公主想休息，就直接切備案。</p>
+          <p class="lead">出遊最重要的是氣氛，不是照表操課。遇到雨、人多、或麗麗公主想躺平，就直接切備案。</p>
         </div>
         <div class="alt-plan">
           <article class="note-card">
             <h3>雨天版</h3>
-            <p>取消吊橋和步道，改成旅宿下午茶、泡湯、室內晚餐。照片改拍窗邊、浴衣、熱湯蒸氣感。</p>
+            <p>取消吊橋跟老街那段，改成旅宿下午茶、泡湯、室內晚餐。照片改拍窗邊、浴衣、熱湯蒸氣感。</p>
           </article>
           <article class="note-card">
-            <h3>體力保留版</h3>
-            <p>第二天不走捎來步道，早餐後直接逛谷關公園和買點心，中午前後回程。</p>
+            <h3>躺平版</h3>
+            <p>第二天連兜風都取消。慢早餐→雙人按摩→房間休息→直接回程，全程不下車超過 5 分鐘。</p>
           </article>
           <article class="note-card">
-            <h3>加碼森林版</h3>
-            <p>天氣好、兩個人都精神好，就把八仙山放成第二天主菜，其他行程全部縮短。</p>
+            <h3>加碼 SPA 版</h3>
+            <p>兩個人都很放鬆，就把 90 分鐘按摩升級成 120 分鐘＋臉部護理，午餐後再追加一次足湯。</p>
           </article>
         </div>
       </section>
 
       <section aria-labelledby="budget-title">
-        <div class="section-title">
+        <div class="section-title" data-eyebrow="04 · Budget">
           <h2 id="budget-title">預算抓法</h2>
           <p class="lead">以下抓兩人總額的概念，實際以住宿日期、房型和交通方式為準。第一次約會建議把交通和住宿舒適度排前面。</p>
         </div>
@@ -731,26 +762,27 @@
           <article class="budget-card">
             <span class="pill-label">推薦約會</span>
             <div class="price">NT$9,000+</div>
-            <p>景觀或湯屋品質更好的房型，晚餐不要太省，留一筆拍照小道具或點心。</p>
+            <p>景觀或湯屋品質更好的房型，含 90 分鐘雙人按摩，晚餐不要太省。</p>
           </article>
           <article class="budget-card">
             <span class="pill-label">加碼享受</span>
             <div class="price">NT$14,000+</div>
-            <p>假日、景觀房、飯店餐、八仙山加碼。適合想把第一次出遊做成紀念的人。</p>
+            <p>假日、景觀房、飯店餐、SPA 升級 120 分鐘＋臉部護理。把第一次出遊做成紀念。</p>
           </article>
         </div>
       </section>
 
       <section aria-labelledby="packing-title">
-        <div class="section-title">
+        <div class="section-title" data-eyebrow="05 · Checklist">
           <h2 id="packing-title">大頭出發前檢查</h2>
           <p class="lead">這份清單比行程更重要。準備好，麗麗公主就能一路放鬆。</p>
         </div>
         <div class="source-box">
           <ul class="checklist">
             <li>訂房後確認入住時間、泡湯型態、停車或接駁方式。</li>
-            <li>出發前一天查天氣、路況、公車班次和八仙山開放狀態。</li>
-            <li>帶薄外套、雨傘、行動電源、濕紙巾、OK 繃、腸胃藥、保溫瓶。</li>
+            <li>前一天打電話預約雙人按摩，確認房型、時段、力道偏好跟是否含淋浴。</li>
+            <li>出發前一天查天氣、路況、公車班次。</li>
+            <li>帶薄外套、雨傘、行動電源、濕紙巾、OK 繃、腸胃藥、保溫瓶；鞋子挑軟底好穿脫，不需要登山鞋。</li>
             <li>車上準備不吵的歌單，音量比平常小一點，讓聊天容易發生。</li>
             <li>拍照前先問：「這裡光很漂亮，要不要我幫妳拍幾張？」不要硬拍。</li>
             <li>回程前問麗麗公主想帶什麼，不要急著把伴手禮跳過。</li>
@@ -759,7 +791,7 @@
       </section>
 
       <section aria-labelledby="sources-title">
-        <div class="section-title">
+        <div class="section-title" data-eyebrow="06 · Sources">
           <h2 id="sources-title">資料與出發前確認</h2>
           <p class="lead">資料整理於 2026-06-24。營業、開放、交通班次會變，出發前請再點官方連結確認一次。</p>
         </div>
@@ -767,8 +799,7 @@
           <ul class="sources">
             <li><a href="https://travel.taichung.gov.tw/zh-tw/attractions/intro/346" target="_blank" rel="noreferrer">台中觀光旅遊網｜谷關溫泉</a></li>
             <li><a href="https://www.trimt-nsa.gov.tw/attraction/谷關溫泉公園" target="_blank" rel="noreferrer">參山國家風景區｜谷關溫泉公園</a></li>
-            <li><a href="https://www.trimt-nsa.gov.tw/attraction/捎來步道" target="_blank" rel="noreferrer">參山國家風景區｜捎來步道</a></li>
-            <li><a href="https://recreation.forest.gov.tw/Forest/RA?typ_id=0300002" target="_blank" rel="noreferrer">林業及自然保育署｜八仙山國家森林遊樂區</a></li>
+            <li>雙人按摩：訂房後直接打電話給飯店 SPA 預約，確認房型、時段、力道。</li>
             <li><a href="https://www.fybus.com.tw/data/city/850.htm" target="_blank" rel="noreferrer">豐原客運｜850 台中至谷關時刻表</a></li>
           </ul>
         </div>
