@@ -108,7 +108,7 @@
         font-size: clamp(2.6rem, 5.4vw, 3.8rem);
         line-height: 1.05;
         font-weight: 800;
-        letter-spacing: -0.01em;
+        letter-spacing: 0;
         max-width: 840px;
       }
 
@@ -197,7 +197,7 @@
         color: var(--red);
         font-size: 0.82rem;
         font-weight: 700;
-        letter-spacing: 0.18em;
+        letter-spacing: 0;
         text-transform: uppercase;
       }
 
@@ -206,7 +206,7 @@
         color: var(--forest-2);
         font-size: clamp(1.6rem, 3vw, 2.2rem);
         line-height: 1.15;
-        letter-spacing: -0.005em;
+        letter-spacing: 0;
       }
 
       h3 {
@@ -259,6 +259,45 @@
       .quick-card span {
         color: var(--muted);
         line-height: 1.65;
+      }
+
+      .hotel-pick {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .hotel-main {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .hotel-main img {
+        display: block;
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+      }
+
+      .hotel-body {
+        padding: 22px;
+      }
+
+      .hotel-body p {
+        color: var(--muted);
+      }
+
+      .hotel-facts {
+        display: grid;
+        gap: 12px;
+      }
+
+      .hotel-facts .note-card {
+        background: rgba(255, 255, 255, 0.68);
       }
 
       .romance-band {
@@ -326,7 +365,8 @@
 
       .timeline-item {
         display: grid;
-        grid-template-columns: 92px 1fr;
+        grid-template-columns: 92px minmax(0, 1fr) 310px;
+        align-items: start;
         gap: 20px;
         padding: 20px 22px;
         transition: border-color 200ms ease, transform 200ms ease;
@@ -335,6 +375,29 @@
       .timeline-item:hover {
         border-color: rgba(183, 75, 66, 0.35);
         transform: translateX(2px);
+      }
+
+      .timeline-media {
+        margin: 0;
+        overflow: hidden;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .timeline-media img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+      }
+
+      .timeline-media figcaption,
+      .photo-credit {
+        padding: 8px 10px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.45;
       }
 
       .time {
@@ -436,6 +499,7 @@
 
         .quick-grid,
         .romance-band,
+        .hotel-pick,
         .budget-grid,
         .alt-plan {
           grid-template-columns: 1fr;
@@ -530,8 +594,8 @@
             <span>初次約會建議自駕最舒服；搭車可查台中市公車 850，班次以當日公告為準。</span>
           </article>
           <article class="quick-card">
-            <strong>住宿位置</strong>
-            <span>挑谷關吊橋、溫泉公園、明治溫泉老街步行圈，晚餐後散步比較不累。</span>
+            <strong>選定住宿</strong>
+            <span>谷關溫泉飯店｜雅緻二人房，一床房型；住宿預算抓 NT$2,899-3,999。</span>
           </article>
           <article class="quick-card">
             <strong>大頭任務</strong>
@@ -569,6 +633,56 @@
         </div>
       </section>
 
+      <section aria-labelledby="hotel-title">
+        <div class="section-title">
+          <h2 id="hotel-title">住這間：谷關溫泉飯店</h2>
+          <p class="lead">
+            五千上下的預算，我選「雅緻二人房，一床房型」。它不是最豪華，但位置、房價和泡湯便利性最適合這趟第一次約會。
+          </p>
+        </div>
+        <div class="hotel-pick">
+          <article class="hotel-main">
+            <img src="assets/photos/kukuan-room-2.jpg" alt="谷關溫泉飯店雅緻二人房房型照片" loading="lazy" />
+            <div class="hotel-body">
+              <span class="pill-label">大頭直接訂這個</span>
+              <h3>雅緻二人房，一床房型</h3>
+              <p>
+                官網房價表列雅緻二人房定價 NT$6,200，一床房型優惠價平日 NT$2,899、假日 NT$3,999；升等二床房型加 NT$500。房型附早餐，住宿贈大眾露天 SPA 池使用，需自備泳衣泳帽。
+              </p>
+              <div class="badge-row">
+                <span class="badge">一床房型</span>
+                <span class="badge">早餐含在內</span>
+                <span class="badge">走路可到吊橋</span>
+              </div>
+              <div class="button-row" style="margin-top: 16px">
+                <a class="btn dark" href="https://www.kukuan.com.tw/page/about/index.aspx?kind=42" target="_blank" rel="noreferrer">看房型</a>
+                <a class="btn dark" href="https://www.kukuan.com.tw/page/about/index.aspx?kind=40" target="_blank" rel="noreferrer">看房價表</a>
+                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E9%97%9C%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97" target="_blank" rel="noreferrer">飯店地圖</a>
+              </div>
+              <div class="photo-credit">照片來源：谷關溫泉飯店官網</div>
+            </div>
+          </article>
+          <div class="hotel-facts">
+            <article class="note-card">
+              <b>為什麼選它</b>
+              <p>預算穩、地點在谷關核心、晚餐後散步不需要再移車；第一次約會最怕舟車勞頓，這間把路線變簡單。</p>
+            </article>
+            <article class="note-card">
+              <b>訂房口令</b>
+              <p>「我要雅緻二人房，一床房型，兩人入住；也想確認早餐、大眾池使用方式，以及是否需要自備泳衣泳帽。」</p>
+            </article>
+            <article class="note-card">
+              <b>五千怎麼守住</b>
+              <p>平日約 NT$2,899；假日約 NT$3,999。若需要二床房型加 NT$500；春節連假不適用此房價。</p>
+            </article>
+            <article class="note-card">
+              <b>大頭要注意</b>
+              <p>飯店公告不提供一次性盥洗用品，牙刷、牙膏、梳子、刮鬍刀自己帶，這點要先替麗麗公主準備。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="itinerary" aria-labelledby="itinerary-title">
         <div class="section-title" data-eyebrow="02 · Itinerary">
           <h2 id="itinerary-title">兩天一夜行程</h2>
@@ -591,6 +705,10 @@
                 <span class="badge">不要空腹進山</span>
               </div>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/guguan-hot-spring-2.jpg" alt="谷關溪谷、吊橋與溫泉飯店景色" loading="lazy" />
+              <figcaption>谷關溪谷與溫泉區實景｜台中觀光旅遊網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -599,6 +717,10 @@
               <h3>谷關午餐，先吃熱的</h3>
               <p>選老街或飯店附近簡單午餐，不安排太油太趕。第一餐重點是坐下來，把一路上的尷尬先聊開。</p>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/kukuan-restaurant-2.jpg" alt="谷關溫泉飯店餐廳室內用餐空間" loading="lazy" />
+              <figcaption>飯店餐廳空間實景｜谷關溫泉飯店官網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -610,14 +732,22 @@
                 <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E9%97%9C%E6%BA%AB%E6%B3%89%E5%85%AC%E5%9C%92" target="_blank" rel="noreferrer">谷關溫泉公園地圖</a>
               </div>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/guguan-park-2.jpg" alt="谷關溫泉公園與遊客中心周邊景觀" loading="lazy" />
+              <figcaption>谷關公園實景｜參山國家風景區</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
             <div class="time">15:00</div>
             <div>
-              <h3>入住溫泉旅宿，休息一下</h3>
-              <p>第一次約會過夜不要一直在外面耗體力。進房放行李、確認泡湯時間、晚餐位置，讓麗麗公主有整理自己的時間。</p>
+              <h3>入住谷關溫泉飯店，先休息一下</h3>
+              <p>訂雅緻二人房一床房型。進房放行李、確認泡湯時間、晚餐位置，讓麗麗公主有整理自己的時間。</p>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/kukuan-room-2.jpg" alt="谷關溫泉飯店雅緻二人房房間實景" loading="lazy" />
+              <figcaption>雅緻二人房實景｜谷關溫泉飯店官網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -634,14 +764,22 @@
                 <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E6%BA%AB%E6%B3%89%E8%80%81%E8%A1%97" target="_blank" rel="noreferrer">明治老街地圖</a>
               </div>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/guguan-hot-spring-1.jpg" alt="谷關溫泉區戶外溫泉廣場與紅色棚架" loading="lazy" />
+              <figcaption>谷關溫泉區實景｜台中觀光旅遊網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
             <div class="time">18:30</div>
             <div>
               <h3>晚餐，吃飽但不要吃太撐</h3>
-              <p>選旅宿餐廳或步行可到的熱食。泡湯前不要喝太多酒，也不要吃到太撐。</p>
+              <p>優先選谷關溫泉飯店致春園餐廳，或步行可到的熱食。泡湯前不要喝太多酒，也不要吃到太撐。</p>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/kukuan-restaurant-1.jpg" alt="谷關溫泉飯店致春園餐廳入口" loading="lazy" />
+              <figcaption>致春園餐廳實景｜谷關溫泉飯店官網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -655,6 +793,10 @@
                 <span class="badge">保暖外套放手邊</span>
               </div>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/kukuan-openair-1.jpg" alt="谷關溫泉飯店露天風呂蒸氣與夜間燈光" loading="lazy" />
+              <figcaption>露天風呂實景｜谷關溫泉飯店官網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -663,6 +805,10 @@
               <h3>短短夜間散步，10 分鐘就好</h3>
               <p>只走旅宿正門外那一小段燈籠路，來回大概 10 分鐘。聊一個輕鬆題目：今天最喜歡的一個畫面是什麼。</p>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/kukuan-onsen-2.jpg" alt="谷關溫泉飯店夜間溫泉池燈光" loading="lazy" />
+              <figcaption>夜間溫泉氛圍實景｜谷關溫泉飯店官網</figcaption>
+            </figure>
           </article>
         </div>
 
@@ -678,6 +824,10 @@
               <h3>慢早餐，不趕退房</h3>
               <p>飯店早餐慢慢吃，順便看一下天氣。退房前把行李先放車上，按摩結束就能直接走，麗麗公主不用再爬上爬下。</p>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/kukuan-cafe-1.jpg" alt="谷關溫泉飯店咖啡廳座位區" loading="lazy" />
+              <figcaption>飯店咖啡廳實景｜谷關溫泉飯店官網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -696,6 +846,10 @@
                 <span class="badge">按完先喝熱茶</span>
               </div>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/kukuan-spa-real-1.jpg" alt="谷關溫泉飯店紓壓 SPA 館實景" loading="lazy" />
+              <figcaption>紓壓 SPA 館實景｜谷關溫泉飯店官網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -704,6 +858,10 @@
               <h3>午餐，挑可以坐久一點的店</h3>
               <p>按完不要馬上趕路。挑老街附近能慢慢吃、有窗景的店，把按摩後放鬆的感覺留住，不要邊趕路邊吃。</p>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/kukuan-restaurant-2.jpg" alt="谷關溫泉飯店餐廳窗邊座位" loading="lazy" />
+              <figcaption>飯店餐廳實景｜谷關溫泉飯店官網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -715,6 +873,10 @@
                 <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E6%BA%AB%E6%B3%89%E8%80%81%E8%A1%97" target="_blank" rel="noreferrer">明治老街地圖</a>
               </div>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/guguan-hot-spring-5.jpg" alt="谷關溫泉區溪谷水景與溫泉意象" loading="lazy" />
+              <figcaption>谷關溫泉區實景｜台中觀光旅遊網</figcaption>
+            </figure>
           </article>
 
           <article class="timeline-item">
@@ -723,6 +885,10 @@
               <h3>回程，不拖到太累</h3>
               <p>自駕建議天黑前下山，按完車上鋪好枕頭讓公主補眠。搭公車請提早查 850 返程班次，寧願早一班，也不要讓最後的印象變成等車焦慮。</p>
             </div>
+            <figure class="timeline-media">
+              <img src="assets/photos/guguan-hot-spring-2.jpg" alt="谷關溪谷、吊橋與溫泉飯店景色" loading="lazy" />
+              <figcaption>谷關溪谷實景｜台中觀光旅遊網</figcaption>
+            </figure>
           </article>
         </div>
       </section>
@@ -750,24 +916,24 @@
 
       <section aria-labelledby="budget-title">
         <div class="section-title" data-eyebrow="04 · Budget">
-          <h2 id="budget-title">預算抓法</h2>
-          <p class="lead">以下抓兩人總額的概念，實際以住宿日期、房型和交通方式為準。第一次約會建議把交通和住宿舒適度排前面。</p>
+          <h2 id="budget-title">五千上下怎麼抓</h2>
+          <p class="lead">這裡把「五千上下」先當住宿預算處理。房價會依日期浮動，出發前仍要以官網或電話確認。</p>
         </div>
         <div class="budget-grid">
           <article class="budget-card">
-            <span class="pill-label">基本舒服</span>
-            <div class="price">NT$6,000+</div>
-            <p>平日溫泉旅宿、簡單餐食、自駕或公車。重點是乾淨、位置方便。</p>
+            <span class="pill-label">主選房型</span>
+            <div class="price">NT$2,899</div>
+            <p>平日雅緻二人房一床房型優惠價 NT$2,899。這是最推薦的約會版本。</p>
           </article>
           <article class="budget-card">
-            <span class="pill-label">推薦約會</span>
-            <div class="price">NT$9,000+</div>
-            <p>景觀或湯屋品質更好的房型，含 90 分鐘雙人按摩，晚餐不要太省。</p>
+            <span class="pill-label">假日版本</span>
+            <div class="price">NT$3,999</div>
+            <p>假日雅緻二人房一床房型優惠價 NT$3,999；仍守在五千上下。</p>
           </article>
           <article class="budget-card">
-            <span class="pill-label">加碼享受</span>
-            <div class="price">NT$14,000+</div>
-            <p>假日、景觀房、飯店餐、SPA 升級 120 分鐘＋臉部護理。把第一次出遊做成紀念。</p>
+            <span class="pill-label">守預算原則</span>
+            <div class="price">NT$5,000內</div>
+            <p>若要升等二床房型加 NT$500；特殊連假若超過五千，優先改平日，不建議換到離核心太遠的住宿。</p>
           </article>
         </div>
       </section>
@@ -779,7 +945,9 @@
         </div>
         <div class="source-box">
           <ul class="checklist">
-            <li>訂房後確認入住時間、泡湯型態、停車或接駁方式。</li>
+            <li>打電話或線上訂「谷關溫泉飯店雅緻二人房」，確認是一床房型、兩人入住。</li>
+            <li>訂房後確認入住時間、早餐、大眾露天 SPA 池使用方式，以及是否需自備泳衣泳帽。</li>
+            <li>飯店公告不提供一次性盥洗用品，牙刷、牙膏、梳子、刮鬍刀要自己準備。</li>
             <li>前一天打電話預約雙人按摩，確認房型、時段、力道偏好跟是否含淋浴。</li>
             <li>出發前一天查天氣、路況、公車班次。</li>
             <li>帶薄外套、雨傘、行動電源、濕紙巾、OK 繃、腸胃藥、保溫瓶；鞋子挑軟底好穿脫，不需要登山鞋。</li>
@@ -798,8 +966,12 @@
         <div class="source-box">
           <ul class="sources">
             <li><a href="https://travel.taichung.gov.tw/zh-tw/attractions/intro/346" target="_blank" rel="noreferrer">台中觀光旅遊網｜谷關溫泉</a></li>
-            <li><a href="https://www.trimt-nsa.gov.tw/attraction/谷關溫泉公園" target="_blank" rel="noreferrer">參山國家風景區｜谷關溫泉公園</a></li>
-            <li>雙人按摩：訂房後直接打電話給飯店 SPA 預約，確認房型、時段、力道。</li>
+            <li><a href="https://www.trimt-nsa.gov.tw/zh-tw/attraction/79/" target="_blank" rel="noreferrer">參山國家風景區｜谷關公園</a></li>
+            <li><a href="https://www.kukuan.com.tw/page/about/index.aspx?kind=40" target="_blank" rel="noreferrer">谷關溫泉飯店｜房價表</a></li>
+            <li><a href="https://www.kukuan.com.tw/page/about/index.aspx?kind=42" target="_blank" rel="noreferrer">谷關溫泉飯店｜雅緻二人房</a></li>
+            <li><a href="https://www.kukuan.com.tw/page/about/index.aspx?kind=46" target="_blank" rel="noreferrer">谷關溫泉飯店｜露天風呂開放時間</a></li>
+            <li><a href="https://www.kukuan.com.tw/page/about/index.aspx?kind=47" target="_blank" rel="noreferrer">谷關溫泉飯店｜紓壓 SPA 館</a></li>
+            <li><a href="https://www.kukuan.com.tw/page/about/index.aspx?kind=49" target="_blank" rel="noreferrer">谷關溫泉飯店｜致春園餐廳</a></li>
             <li><a href="https://www.fybus.com.tw/data/city/850.htm" target="_blank" rel="noreferrer">豐原客運｜850 台中至谷關時刻表</a></li>
           </ul>
         </div>
