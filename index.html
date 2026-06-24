@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>麗麗公主 × 大頭｜谷關明治溫泉老街兩天一夜</title>
+    <meta
+      name="description"
+      content="給麗麗公主跟大頭的初次約會出遊：谷關明治溫泉老街兩天一夜，慢慢散步、泡湯、看山、吃點心。"
+    />
+    <meta property="og:title" content="麗麗公主 × 大頭｜谷關明治溫泉老街兩天一夜" />
+    <meta
+      property="og:description"
+      content="初次約會不趕路，把步調放慢，把照片拍好，把話好好聊完。"
+    />
+    <meta property="og:image" content="assets/guguan-hero.png" />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #fff8ef;
+        --paper-2: #f4efe4;
+        --ink: #23201b;
+        --muted: #6e6255;
+        --forest: #174338;
+        --forest-2: #0f2d28;
+        --moss: #70884f;
+        --red: #b74b42;
+        --amber: #d9a441;
+        --blue: #506f93;
+        --line: rgba(35, 32, 27, 0.15);
+        --shadow: 0 22px 70px rgba(23, 67, 56, 0.2);
+        --radius: 8px;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+          "PingFang TC", "Microsoft JhengHei", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        letter-spacing: 0;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 88vh;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        background: var(--forest);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(12, 34, 30, 0.82), rgba(12, 34, 30, 0.18) 52%, rgba(12, 34, 30, 0.08)),
+          linear-gradient(0deg, rgba(12, 34, 30, 0.88), rgba(12, 34, 30, 0.04) 54%);
+        z-index: 1;
+      }
+
+      .hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 92px 0 70px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 248, 239, 0.4);
+        color: #fff8ef;
+        background: rgba(12, 34, 30, 0.35);
+        border-radius: 999px;
+        font-size: 0.92rem;
+      }
+
+      h1 {
+        margin: 22px 0 14px;
+        color: #fff8ef;
+        font-size: 4.4rem;
+        line-height: 1.02;
+        font-weight: 800;
+        max-width: 840px;
+      }
+
+      h1 span {
+        display: block;
+      }
+
+      .subtitle {
+        color: rgba(255, 248, 239, 0.9);
+        font-size: 1.2rem;
+        line-height: 1.75;
+        max-width: 660px;
+        margin: 0 0 28px;
+      }
+
+      .hero-actions,
+      .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        min-height: 46px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 248, 239, 0.34);
+        padding: 12px 16px;
+        text-decoration: none;
+        font-weight: 700;
+        line-height: 1.2;
+        background: #fff8ef;
+        color: var(--forest-2);
+        transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.16);
+      }
+
+      .btn.secondary {
+        background: rgba(255, 248, 239, 0.12);
+        color: #fff8ef;
+      }
+
+      .btn.dark {
+        background: var(--forest);
+        color: #fff8ef;
+        border-color: var(--forest);
+      }
+
+      .peek {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 22px;
+        background: var(--paper);
+        border-radius: 14px 14px 0 0;
+      }
+
+      main {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      section {
+        padding: 64px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-title {
+        display: grid;
+        gap: 10px;
+        max-width: 760px;
+        margin-bottom: 28px;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--forest-2);
+        font-size: 2.2rem;
+        line-height: 1.15;
+      }
+
+      h3 {
+        margin: 0 0 10px;
+        color: var(--forest-2);
+        font-size: 1.22rem;
+        line-height: 1.35;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.78;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.06rem;
+      }
+
+      .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .quick-card,
+      .note-card,
+      .budget-card,
+      .timeline-item,
+      .source-box {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+      }
+
+      .quick-card {
+        min-height: 158px;
+        padding: 18px;
+      }
+
+      .quick-card strong,
+      .pill-label {
+        display: block;
+        color: var(--red);
+        font-size: 0.92rem;
+        margin-bottom: 9px;
+      }
+
+      .quick-card span {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .romance-band {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .letter {
+        background: var(--forest);
+        color: #fff8ef;
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .letter h2 {
+        color: #fff8ef;
+      }
+
+      .letter p {
+        color: rgba(255, 248, 239, 0.86);
+        margin-top: 16px;
+      }
+
+      .promise-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .note-card {
+        padding: 18px;
+      }
+
+      .note-card b {
+        color: var(--forest-2);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 16px;
+      }
+
+      .day-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 20px 22px;
+        background: var(--forest-2);
+        color: #fff8ef;
+        border-radius: var(--radius);
+      }
+
+      .day-header h3 {
+        color: #fff8ef;
+        margin: 0;
+      }
+
+      .day-header span {
+        color: rgba(255, 248, 239, 0.76);
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 116px 1fr;
+        gap: 18px;
+        padding: 18px;
+      }
+
+      .time {
+        color: var(--red);
+        font-weight: 800;
+      }
+
+      .timeline-item ul,
+      .checklist,
+      .sources {
+        margin: 10px 0 0;
+        padding-left: 1.1rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        border-radius: 999px;
+        padding: 6px 10px;
+        background: rgba(217, 164, 65, 0.2);
+        color: #6c4c10;
+        font-size: 0.88rem;
+      }
+
+      .alt-plan {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .alt-plan .note-card {
+        border-top: 4px solid var(--amber);
+      }
+
+      .budget-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .budget-card {
+        padding: 20px;
+      }
+
+      .price {
+        color: var(--forest-2);
+        font-size: 1.8rem;
+        line-height: 1;
+        font-weight: 800;
+        margin: 12px 0 8px;
+      }
+
+      .source-box {
+        padding: 22px;
+        background: var(--paper-2);
+      }
+
+      footer {
+        padding: 34px 0 54px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 880px) {
+        .hero {
+          min-height: 84vh;
+        }
+
+        .hero-content {
+          width: min(100% - 28px, 720px);
+          padding: 72px 0 56px;
+        }
+
+        h1 {
+          font-size: 3rem;
+        }
+
+        main {
+          width: min(100% - 28px, 720px);
+        }
+
+        section {
+          padding: 46px 0;
+        }
+
+        .quick-grid,
+        .romance-band,
+        .budget-grid,
+        .alt-plan {
+          grid-template-columns: 1fr;
+        }
+
+        .promise-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero::before {
+          background:
+            linear-gradient(0deg, rgba(12, 34, 30, 0.9), rgba(12, 34, 30, 0.3)),
+            linear-gradient(90deg, rgba(12, 34, 30, 0.72), rgba(12, 34, 30, 0.12));
+        }
+
+        h1 {
+          font-size: 2.35rem;
+          line-height: 1.1;
+        }
+
+        h2 {
+          font-size: 1.68rem;
+        }
+
+        .subtitle {
+          font-size: 1.02rem;
+        }
+
+        .hero-actions,
+        .button-row {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .day-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <img src="assets/guguan-hero.png" alt="山城溫泉老街夜景，兩人一起走上燈籠點亮的石階" />
+      <div class="hero-content">
+        <div class="eyebrow">谷關明治溫泉老街 · 兩天一夜 · 初次約會</div>
+        <h1><span>麗麗公主 × 大頭</span><span>溫泉小旅行</span></h1>
+        <p class="subtitle">
+          第一次出遊不要趕行程。把路線排得順一點，讓散步、泡湯、拍照和聊天都有剛剛好的空白。
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#itinerary">看行程表</a>
+          <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E9%97%9C%E6%98%8E%E6%B2%BB%E6%BA%AB%E6%B3%89%E8%80%81%E8%A1%97" target="_blank" rel="noreferrer">開啟地圖</a>
+        </div>
+      </div>
+      <div class="peek" aria-hidden="true"></div>
+    </header>
+
+    <main>
+      <section aria-labelledby="brief-title">
+        <div class="section-title">
+          <h2 id="brief-title">這趟的節奏</h2>
+          <p class="lead">
+            谷關明治溫泉老街比較像溫泉飯店周邊的日式散步街景，不是大型商店街。最適合的玩法是：下午到、傍晚散步拍照、晚上泡湯，隔天再選一條不太硬的山林路線。
+          </p>
+        </div>
+        <div class="quick-grid">
+          <article class="quick-card">
+            <strong>主題</strong>
+            <span>山景、老街燈籠、溫泉、輕步道，重點是讓兩個人自然相處。</span>
+          </article>
+          <article class="quick-card">
+            <strong>推薦交通</strong>
+            <span>初次約會建議自駕最舒服；搭車可查台中市公車 850，班次以當日公告為準。</span>
+          </article>
+          <article class="quick-card">
+            <strong>住宿位置</strong>
+            <span>挑谷關吊橋、溫泉公園、明治溫泉老街步行圈，晚餐後散步比較不累。</span>
+          </article>
+          <article class="quick-card">
+            <strong>大頭任務</strong>
+            <span>訂房、查天氣、備雨傘、帶小點心，拍照前先問麗麗公主喜歡哪一邊臉。</span>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="invite-title">
+        <div class="romance-band">
+          <article class="letter">
+            <h2 id="invite-title">給麗麗公主的邀請</h2>
+            <p>
+              這趟不走趕路行程。大頭負責路線、時間、交通跟泡湯安排；麗麗公主只要負責慢慢走、挑照片、吃喜歡的小點心，然後把今天過得開心。
+            </p>
+          </article>
+          <div class="promise-grid" aria-label="約會小約定">
+            <div class="note-card">
+              <b>不排滿</b>
+              <p>每半天只抓一個主活動，留時間給喝咖啡、休息、換衣服、補妝。</p>
+            </div>
+            <div class="note-card">
+              <b>不硬爬</b>
+              <p>第二天步道用麗麗公主狀態決定，想舒服就改森林散步或泡湯。</p>
+            </div>
+            <div class="note-card">
+              <b>不催促</b>
+              <p>喜歡的景就多停一下；如果照片拍不好，大頭重拍到公主滿意。</p>
+            </div>
+            <div class="note-card">
+              <b>不冒險</b>
+              <p>天氣不好就啟用雨天備案，不勉強走吊橋或山路。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="itinerary" aria-labelledby="itinerary-title">
+        <div class="section-title">
+          <h2 id="itinerary-title">兩天一夜行程</h2>
+          <p class="lead">時間可以照住宿入住時間微調。原則是第一天浪漫，第二天看山；不把體力花到約會品質下降。</p>
+        </div>
+
+        <div class="timeline">
+          <div class="day-header">
+            <h3>Day 1｜抵達谷關，老街散步與泡湯</h3>
+            <span>建議 10:00 從台中出發</span>
+          </div>
+
+          <article class="timeline-item">
+            <div class="time">10:00</div>
+            <div>
+              <h3>台中出發，路上先買水跟點心</h3>
+              <p>自駕走台 8 線進谷關，車程抓 1.5 到 2 小時。搭公車就以 850 台中到谷關為主，出門前再查即時班次。</p>
+              <div class="badge-row">
+                <span class="badge">車上歌單先準備</span>
+                <span class="badge">不要空腹進山</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">12:00</div>
+            <div>
+              <h3>谷關午餐，先吃熱的</h3>
+              <p>選老街或飯店附近簡單午餐，不安排太油太趕。第一餐重點是坐下來，把一路上的尷尬先聊開。</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">13:30</div>
+            <div>
+              <h3>谷關溫泉公園、足湯或附近慢慢逛</h3>
+              <p>用輕鬆景點接入住時間，腳不累、話題也自然。若遇到維護或人太多，就改到旅宿附近喝咖啡。</p>
+              <div class="button-row">
+                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E9%97%9C%E6%BA%AB%E6%B3%89%E5%85%AC%E5%9C%92" target="_blank" rel="noreferrer">谷關溫泉公園地圖</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">15:00</div>
+            <div>
+              <h3>入住溫泉旅宿，休息一下</h3>
+              <p>第一次約會過夜不要一直在外面耗體力。進房放行李、確認泡湯時間、晚餐位置，讓麗麗公主有整理自己的時間。</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">16:30</div>
+            <div>
+              <h3>谷關吊橋、明治溫泉老街拍照</h3>
+              <p>傍晚光線最適合拍人。走谷關吊橋看溪谷，再回到明治溫泉老街燈籠街景拍兩人背影照。</p>
+              <ul>
+                <li>大頭先拍環境，再拍麗麗公主，不要一開始就近拍。</li>
+                <li>拍照口訣：站燈籠旁、身體微側、背景留山景。</li>
+              </ul>
+              <div class="button-row">
+                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E9%97%9C%E5%90%8A%E6%A9%8B" target="_blank" rel="noreferrer">谷關吊橋地圖</a>
+                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E6%98%8E%E6%B2%BB%E6%BA%AB%E6%B3%89%E8%80%81%E8%A1%97" target="_blank" rel="noreferrer">明治老街地圖</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">18:30</div>
+            <div>
+              <h3>晚餐，吃飽但不要吃太撐</h3>
+              <p>選旅宿餐廳或步行可到的熱食。泡湯前不要喝太多酒，也不要吃到太撐。</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">20:00</div>
+            <div>
+              <h3>泡湯時間</h3>
+              <p>谷關溫泉以碳酸氫鹽泉聞名。泡湯前先補水，泡 10 到 15 分鐘就休息一下，舒服比逞強重要。</p>
+              <div class="badge-row">
+                <span class="badge">毛巾多帶一條</span>
+                <span class="badge">泡後喝水</span>
+                <span class="badge">保暖外套放手邊</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">21:30</div>
+            <div>
+              <h3>夜間散步，收一個溫柔結尾</h3>
+              <p>只走旅宿附近，聊三個輕鬆題目：最喜歡的旅行、最近想學的事、下一次想一起吃什麼。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="timeline" style="margin-top: 28px">
+          <div class="day-header">
+            <h3>Day 2｜輕步道、森林與回程</h3>
+            <span>舒服版，不拚體力</span>
+          </div>
+
+          <article class="timeline-item">
+            <div class="time">08:30</div>
+            <div>
+              <h3>早餐與退房前準備</h3>
+              <p>先確認天氣、鞋子、雨具。若前一晚太晚睡，第二天直接改「慢早餐＋溫泉公園」也很合理。</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">10:00</div>
+            <div>
+              <h3>捎來步道小挑戰</h3>
+              <p>這段有階梯，適合想看谷關山景又不想遠征的人。走到觀景處就好，不需要完整拚完。</p>
+              <ul>
+                <li>公主穿好走的鞋，大頭帶水和濕紙巾。</li>
+                <li>如果地濕或下雨，直接取消，不拿安全開玩笑。</li>
+              </ul>
+              <div class="button-row">
+                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E8%B0%B7%E9%97%9C%E6%8D%8E%E4%BE%86%E6%AD%A5%E9%81%93" target="_blank" rel="noreferrer">捎來步道地圖</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">12:00</div>
+            <div>
+              <h3>午餐，選輕鬆好聊天的位置</h3>
+              <p>不要邊趕路邊吃。上午若走步道，午餐就回谷關；若直接去八仙山，午餐可安排森林遊樂區內或回程路上。</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">13:30</div>
+            <div>
+              <h3>八仙山森林散步，或回老街買伴手</h3>
+              <p>想多看森林就去八仙山國家森林遊樂區；想更放鬆就留在谷關買白冷冰棒、小點心，拍最後一組照片。</p>
+              <div class="button-row">
+                <a class="btn dark" href="https://www.google.com/maps/search/?api=1&query=%E5%85%AB%E4%BB%99%E5%B1%B1%E5%9C%8B%E5%AE%B6%E6%A3%AE%E6%9E%97%E9%81%8A%E6%A8%82%E5%8D%80" target="_blank" rel="noreferrer">八仙山地圖</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="time">15:30</div>
+            <div>
+              <h3>回程，不拖到太累</h3>
+              <p>自駕建議天黑前下山。搭公車請提早查 850 返程班次，寧願早一班，也不要讓最後的印象變成等車焦慮。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="backup-title">
+        <div class="section-title">
+          <h2 id="backup-title">三個備案</h2>
+          <p class="lead">出遊最重要的是氣氛，不是照表操課。遇到雨、人多、或麗麗公主想休息，就直接切備案。</p>
+        </div>
+        <div class="alt-plan">
+          <article class="note-card">
+            <h3>雨天版</h3>
+            <p>取消吊橋和步道，改成旅宿下午茶、泡湯、室內晚餐。照片改拍窗邊、浴衣、熱湯蒸氣感。</p>
+          </article>
+          <article class="note-card">
+            <h3>體力保留版</h3>
+            <p>第二天不走捎來步道，早餐後直接逛谷關公園和買點心，中午前後回程。</p>
+          </article>
+          <article class="note-card">
+            <h3>加碼森林版</h3>
+            <p>天氣好、兩個人都精神好，就把八仙山放成第二天主菜，其他行程全部縮短。</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="budget-title">
+        <div class="section-title">
+          <h2 id="budget-title">預算抓法</h2>
+          <p class="lead">以下抓兩人總額的概念，實際以住宿日期、房型和交通方式為準。第一次約會建議把交通和住宿舒適度排前面。</p>
+        </div>
+        <div class="budget-grid">
+          <article class="budget-card">
+            <span class="pill-label">基本舒服</span>
+            <div class="price">NT$6,000+</div>
+            <p>平日溫泉旅宿、簡單餐食、自駕或公車。重點是乾淨、位置方便。</p>
+          </article>
+          <article class="budget-card">
+            <span class="pill-label">推薦約會</span>
+            <div class="price">NT$9,000+</div>
+            <p>景觀或湯屋品質更好的房型，晚餐不要太省，留一筆拍照小道具或點心。</p>
+          </article>
+          <article class="budget-card">
+            <span class="pill-label">加碼享受</span>
+            <div class="price">NT$14,000+</div>
+            <p>假日、景觀房、飯店餐、八仙山加碼。適合想把第一次出遊做成紀念的人。</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="packing-title">
+        <div class="section-title">
+          <h2 id="packing-title">大頭出發前檢查</h2>
+          <p class="lead">這份清單比行程更重要。準備好，麗麗公主就能一路放鬆。</p>
+        </div>
+        <div class="source-box">
+          <ul class="checklist">
+            <li>訂房後確認入住時間、泡湯型態、停車或接駁方式。</li>
+            <li>出發前一天查天氣、路況、公車班次和八仙山開放狀態。</li>
+            <li>帶薄外套、雨傘、行動電源、濕紙巾、OK 繃、腸胃藥、保溫瓶。</li>
+            <li>車上準備不吵的歌單，音量比平常小一點，讓聊天容易發生。</li>
+            <li>拍照前先問：「這裡光很漂亮，要不要我幫妳拍幾張？」不要硬拍。</li>
+            <li>回程前問麗麗公主想帶什麼，不要急著把伴手禮跳過。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="sources-title">
+        <div class="section-title">
+          <h2 id="sources-title">資料與出發前確認</h2>
+          <p class="lead">資料整理於 2026-06-24。營業、開放、交通班次會變，出發前請再點官方連結確認一次。</p>
+        </div>
+        <div class="source-box">
+          <ul class="sources">
+            <li><a href="https://travel.taichung.gov.tw/zh-tw/attractions/intro/346" target="_blank" rel="noreferrer">台中觀光旅遊網｜谷關溫泉</a></li>
+            <li><a href="https://www.trimt-nsa.gov.tw/attraction/谷關溫泉公園" target="_blank" rel="noreferrer">參山國家風景區｜谷關溫泉公園</a></li>
+            <li><a href="https://www.trimt-nsa.gov.tw/attraction/捎來步道" target="_blank" rel="noreferrer">參山國家風景區｜捎來步道</a></li>
+            <li><a href="https://recreation.forest.gov.tw/Forest/RA?typ_id=0300002" target="_blank" rel="noreferrer">林業及自然保育署｜八仙山國家森林遊樂區</a></li>
+            <li><a href="https://www.fybus.com.tw/data/city/850.htm" target="_blank" rel="noreferrer">豐原客運｜850 台中至谷關時刻表</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      麗麗公主 × 大頭｜第一次谷關溫泉小旅行，慢慢走就很好。
+    </footer>
+  </body>
+</html>
